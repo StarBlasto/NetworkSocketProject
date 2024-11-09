@@ -5,6 +5,7 @@ import socket
 import threading
 import hashlib
 import time
+import shutil
 
 # Constant Variables
 IP = 'localhost' ### gethostname()
@@ -65,33 +66,33 @@ def handle_conn(conn, addr):
             if cmd == 'UPLOAD':
                 # UPLOAD command
                 # Sets up file path
-                file_name = conn.recv(SIZE).decode(FORMAT)
-                file = os.path.join(SERVER_DATA_PATH, file_name)
+                file_path = conn.recv(SIZE).decode(FORMAT).strip("/")
+                full_path = os.path.join(SERVER_DATA_PATH, file_path)
 
-                # Opens file
-                with open(file, 'wb') as opened_file:
-
-                    # Loops and adds chunks until final bit chunk
+                os.makedirs(os.path.dirname(full_path), exist_ok=True)
+                
+                with open(full_path, 'wb') as opened_file:
                     while True:
                         chunk = conn.recv(SIZE)
-                        if chunk == b'EOF':
+                        if chunk == b"EOF":
                             break
                         opened_file.write(chunk)
 
-                # Finishes confirmation message
-                print(f'{addr} upploaded {file_name} to the server')  
-                conn.send('FILE UPLOADED'.encode(FORMAT))
+                conn.send("FILE UPLOADED".encode(FORMAT))
+                print(f"{addr} uploaded {file_path} to the server.")
                 pass
 
             elif cmd == 'DOWNLOAD':
                 try:
-                    # Receives the file from client side
-                    file_name = conn.recv(SIZE).decode(FORMAT)
+                    # Receives the file name from client request
+                    file_name = conn.recv(SIZE).decode(FORMAT).strip()
                     file_path = os.path.join(SERVER_DATA_PATH, file_name)
 
                     # Check if the file exists
                     if not os.path.exists(file_path):
-                        conn.send(f"ERROR@File {file_name} does not exist.".encode(FORMAT))
+                        error_message = f"ERROR@File {file_name} does not exist."
+                        conn.send(error_message.encode(FORMAT))
+                        print(f"Download request failed: {error_message}")
                         return
 
                     # Open and send the file in chunks
@@ -99,21 +100,74 @@ def handle_conn(conn, addr):
                         print(f"Sending {file_name} to client...")
                         while chunk := f.read(SIZE):
                             conn.send(chunk)
+                    # Send an EOF to indicate the end of the file transfer
                     conn.send(b"EOF")
                     print(f"Finished sending {file_name}.")
 
                 except Exception as e:
-                    # Handles exception error
-                    print(f"Error during file download: {e}")
+                    # Handles any exception during download
+                    error_message = f"ERROR@{str(e)}"
+                    conn.send(error_message.encode(FORMAT))
+                    print(f"Error during file download: {error_message}")
 
+            # Server code to handle DELETE command
             elif cmd == 'DELETE':
-                print(f'{addr} requests deleting file')
-                pass
+                # Receive the item path from the client
+                item_path = conn.recv(SIZE).decode(FORMAT)
+                item_path = os.path.join(SERVER_DATA_PATH, item_path)
+
+                try:
+                    if os.path.isfile(item_path):
+                        # Delete file
+                        os.remove(item_path)
+                        conn.send("FILE_DELETED".encode(FORMAT))
+                        print(f"File '{item_path}' deleted successfully.")
+                    elif os.path.isdir(item_path):
+                        # Delete directory and its contents
+                        shutil.rmtree(item_path)
+                        conn.send("FILE_DELETED".encode(FORMAT))
+                        print(f"Directory '{item_path}' deleted successfully.")
+                    else:
+                        conn.send("ERROR@Item does not exist.".encode(FORMAT))
+                except Exception as e:
+                    # Send error message to the client
+                    error_message = f"ERROR@{str(e)}"
+                    conn.send(error_message.encode(FORMAT))
+                    print(f"Failed to delete '{item_path}': {e}")
+
             elif cmd == 'DIR':
-                pass
+                print('Server requested DIR')
+                def list_files(directory, path=""):
+                    result = []
+                    for item in os.listdir(directory):
+                        item_path = os.path.join(directory, item)
+                        if os.path.isdir(item_path):
+                            result.append(f"{path}{item}/")
+                            result.extend(list_files(item_path, f"{path}{item}/"))
+                        else:
+                            result.append(f"{path}{item}")
+                    return result
+                
+                files = list_files(SERVER_DATA_PATH)
+                files_list = "\n".join(files) if files else "Empty"
+                conn.send(files_list.encode(FORMAT))
+
             elif cmd == 'LOGOUT':
                 print(f'{addr} requests logout')
                 break
+
+            elif cmd == 'CREATE_DIR':
+                print('Server requested to create directory')
+                try:
+                    dir_name = conn.recv(SIZE).decode(FORMAT)
+                    new_dir_path = os.path.join(SERVER_DATA_PATH, dir_name)
+                    os.makedirs(new_dir_path, exist_ok=True)
+                    conn.send("DIR_CREATED".encode(FORMAT))
+                    print(f"Directory '{dir_name}' created successfully.")
+                except Exception as e:
+                    conn.send(f"ERROR@{str(e)}".encode(FORMAT))
+                    print(f"Failed to create directory '{dir_name}': {e}")
+
             else:
                 conn.send('ERROR@Invalid Command'.encode(FORMAT))
         except Exception as e:

@@ -8,7 +8,7 @@ from tkinter import messagebox, filedialog, ttk, simpledialog
 import time
 
 # Constant Variables
-IP = 'localhost'
+IP = '192.168.1.213'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024

@@ -8,7 +8,7 @@ import time
 import shutil
 
 # Constant Variables
-IP = 'localhost' ### gethostname()
+IP = '192.168.1.213'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024

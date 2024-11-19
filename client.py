@@ -6,9 +6,10 @@ import hashlib
 import tkinter as tk
 from tkinter import messagebox, filedialog, ttk, simpledialog
 import time
+from tqdm import tqdm
 
 # Constant Variables
-IP = '192.168.1.213'
+IP = '10.221.81.79'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -57,20 +58,30 @@ class UI:
                 conn.send('UPLOAD'.encode(FORMAT))
                 file_name = os.path.basename(file_path)
 
+                # Gets size
+                file_size = os.path.getsize(file_path)
+                progress_bar = tqdm(total=file_size, unit='iB', unit_scale=True)
+
                 # Send the target directory path
                 conn.send(f'{target_folder}/{file_name}'.encode(FORMAT))
-                time.sleep(0.1)
                 
                 # Transfer the file in chunks
                 with open(file_path, 'rb') as f:
                     while chunk := f.read(SIZE):
                         conn.send(chunk)
+                        progress_bar.update(len(chunk))
                 conn.send(b'EOF')
 
                 # Handles server response
                 response = conn.recv(SIZE).decode(FORMAT)
                 print(f'Server response: {response}')
-                self.status_var.set(f'Uploaded {file_name} to {target_folder} successfully')
+
+                # Gets upload speed
+                upload_speed = conn.recv(SIZE).decode(FORMAT)
+                print(f'Upload Speed: {upload_speed}')
+
+                # Updates label
+                self.status_var.set(f'Uploaded {file_name} to {target_folder} successfully\nUpload Speed: {upload_speed} MB/s')
                 self.update_file_list(conn)
 
         except ConnectionAbortedError as e:
@@ -128,9 +139,9 @@ class UI:
                     else:
                         display = f'{indent}[File] {line}'
                     self.file_listbox.insert(tk.END, display)
-        else:
+       # else:
             # There are no files
-            self.file_listbox.insert(tk.END, 'No files available')
+            #self.file_listbox.insert(tk.END, 'No files available')
 
     # Name: download_file
     # Param: conn - the connection to the server
@@ -164,22 +175,32 @@ class UI:
         # Opens the file to download
         with open(save_path, 'wb') as opened_file:
             while True:
+                print('Waiting for Chunk...')
                 chunk = conn.recv(SIZE)
 
-                if chunk == b'EOF':
+                if b'EOF' in chunk:
                     # The final chunk from the TCP
                     print('Final Chunk (EOF received)')
-                    self.status_var.set(f'{file_name} downloaded successfully!')
+                    opened_file.write(chunk.split(b'EOF')[0])
+
+                    # Sends confirmation
+                    conn.send('CONFIRM'.encode(FORMAT))
+
+                    # Gets download speed
+                    download_speed = conn.recv(SIZE).decode(FORMAT)
+                    print(f'Upload Speed: {download_speed}')
+
+                    self.status_var.set(f'{file_name} downloaded successfully!\nDownload Speed: {download_speed} MB/s')
                     break
                 elif chunk.startswith(b'ERROR@'):
                     # There was an error
                     error_msg = chunk.decode(FORMAT)
                     messagebox.showerror('Download Error', error_msg.split('@')[1])
                     return
-                else:
-                    # Average chunk sending
-                    print(f'Chunk received: {chunk[:50]} ...')
-                    opened_file.write(chunk)
+                
+                # Average chunk sending
+                print(f'Writing Chunk: {chunk[:5]}')
+                opened_file.write(chunk)
         
         # Verifies file has been sent
         print(f'Downloaded file saved to: {save_path}')
@@ -304,7 +325,7 @@ class UI:
 
 
         # Create a Listbox to show the list of files
-        self.file_listbox = tk.Listbox(self.fd_frame, selectmode=tk.SINGLE, width=30, height=10)
+        self.file_listbox = tk.Listbox(self.fd_frame, selectmode=tk.SINGLE, width=70, height=10)
         self.file_listbox.grid(row=3, column=0, pady=10)
 
         # Refresh Button to fetch file list
@@ -317,8 +338,9 @@ class UI:
     # Return: None
     # Desc: Sets up the Authentication frame
     def setup_au_frame(self, conn):
+        # Create Authentication frame
         self.au_frame = tk.Frame(self.root, height=self.SIZE_Y, width=self.SIZE_X, padx=20, pady=20, bg='lightgrey')
-        self.au_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        self.au_frame.grid(row=0, column=0, sticky=(tk.N, tk.S, tk.E, tk.W))
 
         # Title for the Authentication process
         self.au_lb1 = tk.Label(self.au_frame, text='Authentication Process', font=('Helvetica', 16, 'bold'), bg='lightgrey')
@@ -341,6 +363,12 @@ class UI:
                                command=lambda: self.authenticate(conn=conn, username=self.au_box1.get(), password=self.au_box2.get()),
                                bg='#17A2B8', fg='white')
         self.au_b1.grid(row=3, column=0, columnspan=2, padx=10, pady=15)
+
+        # Configure row and column weights for centering
+        self.au_frame.grid_rowconfigure(0, weight=1)
+        self.au_frame.grid_rowconfigure(4, weight=1)
+        self.au_frame.grid_columnconfigure(0, weight=1)
+        self.au_frame.grid_columnconfigure(1, weight=1)
 
     # Name: __init__
     # Param: None

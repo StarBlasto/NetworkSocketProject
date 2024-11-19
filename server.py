@@ -6,9 +6,12 @@ import threading
 import hashlib
 import time
 import shutil
+from analysis import start_track, end_track
+from tqdm import tqdm
+
 
 # Constant Variables
-IP = '192.168.1.213'
+IP = '10.221.81.79'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -24,12 +27,14 @@ correct_password_hashed = hashlib.sha256(correct_password.encode()).hexdigest()
 # Return: True or False
 # Desc: Verifies whether a user should or shouldn't be on this connection
 def autheticate_conn(conn):
+    # Handles initial verification
     conn.send('OK@Username:'.encode(FORMAT))
     username = conn.recv(SIZE).decode(FORMAT)
     conn.send('OK@Password:'.encode(FORMAT))
     password = conn.recv(SIZE).decode(FORMAT)
     print(f'Server: Recieved hashed password: {password}')
 
+    # Completes final verification
     if username == 'user' and password == correct_password_hashed:
         conn.send('OK@Permission verified'.encode(FORMAT))
         print(f'Permission Verified')  
@@ -64,25 +69,40 @@ def handle_conn(conn, addr):
             cmd = data.split(' ')[0]
 
             if cmd == 'UPLOAD':
-                # UPLOAD command
+                # --------------------------------------------------------------------------------------
+                # | UPLOAD | command
                 # Sets up file path
                 file_path = conn.recv(SIZE).decode(FORMAT).strip("/")
                 full_path = os.path.join(SERVER_DATA_PATH, file_path)
 
                 os.makedirs(os.path.dirname(full_path), exist_ok=True)
                 
+                # Starts tracking
+                start_track()
+                
+                # Sends file
                 with open(full_path, 'wb') as opened_file:
                     while True:
                         chunk = conn.recv(SIZE)
                         if chunk == b"EOF":
+                            print('EOF Located')
                             break
                         opened_file.write(chunk)
-
                 conn.send("FILE UPLOADED".encode(FORMAT))
+
+                # Handles file size and speed
+                file_size = os.path.getsize(full_path)
+                file_size_int = int(file_size)
+                upload_speed = end_track(file_size_int)
                 print(f"{addr} uploaded {file_path} to the server.")
+
+                # Sends the upload speed
+                conn.send(f'{upload_speed}'.encode(FORMAT))
                 pass
 
             elif cmd == 'DOWNLOAD':
+                # --------------------------------------------------------------------------------------
+                # | DOWNLOAD | command
                 try:
                     # Receives the file name from client request
                     file_name = conn.recv(SIZE).decode(FORMAT).strip()
@@ -94,15 +114,39 @@ def handle_conn(conn, addr):
                         conn.send(error_message.encode(FORMAT))
                         print(f"Download request failed: {error_message}")
                         return
+                    
+                    # Starts tracking
+                    start_track()
+
+                    # Handles file size
+                    file_size = os.path.getsize(file_path)
+                    file_size_int = int(file_size)
+                    progress_bar = tqdm(total=file_size_int, unit='iB', unit_scale=True)
 
                     # Open and send the file in chunks
                     with open(file_path, "rb") as f:
                         print(f"Sending {file_name} to client...")
                         while chunk := f.read(SIZE):
-                            conn.send(chunk)
+                            if chunk.startswith(b'CMD:'):
+                                command = chunk[4:].decode('utf-8')
+                                print(f"Received Command: {command}")
+                            else:
+                                print(f'Sending chunk: {chunk[:50]}...')
+                                conn.send(chunk)
+                                progress_bar.update(len(chunk))
+                
+                    # Handles upload speed
+                    download_speed = end_track(file_size_int)
+
                     # Send an EOF to indicate the end of the file transfer
                     conn.send(b"EOF")
                     print(f"Finished sending {file_name}.")
+
+                    # Getting confirmation
+                    conn.recv(SIZE).decode(FORMAT)
+
+                    # Sends the download speed
+                    conn.send(f'{download_speed}'.encode(FORMAT))
 
                 except Exception as e:
                     # Handles any exception during download
@@ -112,6 +156,8 @@ def handle_conn(conn, addr):
 
             # Server code to handle DELETE command
             elif cmd == 'DELETE':
+                # --------------------------------------------------------------------------------------
+                # | DELETE | command
                 # Receive the item path from the client
                 item_path = conn.recv(SIZE).decode(FORMAT)
                 item_path = os.path.join(SERVER_DATA_PATH, item_path)
@@ -136,6 +182,8 @@ def handle_conn(conn, addr):
                     print(f"Failed to delete '{item_path}': {e}")
 
             elif cmd == 'DIR':
+                # --------------------------------------------------------------------------------------
+                # | DIR | command
                 print('Server requested DIR')
                 def list_files(directory, path=""):
                     result = []
@@ -153,10 +201,14 @@ def handle_conn(conn, addr):
                 conn.send(files_list.encode(FORMAT))
 
             elif cmd == 'LOGOUT':
+                # --------------------------------------------------------------------------------------
+                # | LOGOUT | command
                 print(f'{addr} requests logout')
                 break
 
             elif cmd == 'CREATE_DIR':
+                # --------------------------------------------------------------------------------------
+                # | CREATE_DIR | command
                 print('Server requested to create directory')
                 try:
                     dir_name = conn.recv(SIZE).decode(FORMAT)

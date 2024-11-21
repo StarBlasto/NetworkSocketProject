@@ -1,0 +1,57 @@
+('10.221.80.225', 49350) | UPLOADED File (To Server): Software Design.docx | Time: 2024-11-21 11:54:20
+File Size: 0.55 MB | Upload Speed: 18.302 MB/s
+
+('10.221.80.225', 49350) | DELETED File (From Server): Software Design.docx | Time: 2024-11-21 11:54:24
+File Size: 0.55 MB
+
+('10.221.80.225', 49350) | UPLOADED File (To Server): Presentation Video.mp4 | Time: 2024-11-21 11:56:05
+File Size: 64.12 MB | Upload Speed: 65.807 MB/s
+
+('10.221.80.225', 49350) | DOWNLOADED File (From Server): server_data\Presentation Video.mp4 | Time: 2024-11-21 11:56:22
+File Size: 64.12 MB | Download Speed: 4.266 MB/s
+
+('10.221.80.225', 49350) | DELETED File (From Server): Presentation Video.mp4 | Time: 2024-11-21 11:56:38
+File Size: 64.12 MB
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-11-21 12:24:22
+File Size: 10.43 MB | Upload Speed: 25.316 MB/s
+
+('10.221.80.225', 49979) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-11-21 12:24:43
+File Size: 10.43 MB
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): R (1).jpg | Time: 2024-11-21 12:25:04
+File Size: 0.04 MB | Upload Speed: 4.674 MB/s
+
+('10.221.80.225', 49979) | DOWNLOADED File (From Server): server_data\R (1).jpg | Time: 2024-11-21 12:25:09
+File Size: 0.04 MB | Download Speed: 2.612 MB/s
+
+('10.221.80.225', 49979) | DELETED File (From Server): R (1).jpg | Time: 2024-11-21 12:25:17
+File Size: 0.04 MB
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 12:33:47
+File Size: 0.53 MB | Upload Speed: 30.376 MB/s
+
+('10.221.80.225', 49979) | DELETED File (From Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 12:33:50
+File Size: 0.53 MB
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 12:33:57
+File Size: 0.53 MB | Upload Speed: 32.904 MB/s
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): Database 1 Final Project.odp | Time: 2024-11-21 12:34:04
+File Size: 1.18 MB | Upload Speed: 22.602 MB/s
+
+('10.221.80.225', 49979) | DELETED File (From Server): Database 1 Final Project.odp | Time: 2024-11-21 12:34:07
+File Size: 1.18 MB
+
+('10.221.80.225', 49979) | DELETED File (From Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 12:34:11
+File Size: 0.53 MB
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): Assignment_5_Answers.pdf | Time: 2024-11-21 12:40:32
+File Size: 0.32 MB | Upload Speed: 11.3 MB/s
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): brute_force.cpp | Time: 2024-11-21 12:40:39
+File Size: 0.0 MB | Upload Speed: 0.218 MB/s
+
+('10.221.80.225', 49979) | UPLOADED File (To Server): Saving Money with Dynamic Programming.pptx | Time: 2024-11-21 12:40:45
+File Size: 1.34 MB | Upload Speed: 18.285 MB/s
+

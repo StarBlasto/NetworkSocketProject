@@ -9,7 +9,7 @@ import time
 from tqdm import tqdm
 
 # Constant Variables
-IP = '10.221.81.79'
+IP = '10.221.80.225'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -58,12 +58,24 @@ class UI:
                 conn.send('UPLOAD'.encode(FORMAT))
                 file_name = os.path.basename(file_path)
 
+                # Send the target directory path
+                conn.send(f'{target_folder}/{file_name}'.encode(FORMAT))
+
+                # Check's if the file exists already in the server
+                server_resp = conn.recv(SIZE).decode(FORMAT)
+                if server_resp == 'ALREADY EXISTS':
+                    confirm = messagebox.askyesno('File Already exists', f'Would you like to overwrite the file?')
+                    if confirm:
+                        conn.send('YES'.encode(FORMAT))
+                    else:
+                        conn.send('NO'.encode(FORMAT))
+                        return
+                else:
+                    conn.send('N/A'.encode(FORMAT))
+                
                 # Gets size
                 file_size = os.path.getsize(file_path)
                 progress_bar = tqdm(total=file_size, unit='iB', unit_scale=True)
-
-                # Send the target directory path
-                conn.send(f'{target_folder}/{file_name}'.encode(FORMAT))
                 
                 # Transfer the file in chunks
                 with open(file_path, 'rb') as f:

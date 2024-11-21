@@ -1,6 +1,7 @@
 # [ANALYSIS]
 # Importted modules
 import time
+import pandas as pd
 
 # Global variables
 last_start_time = 0
@@ -29,3 +30,14 @@ def end_track(file_size):
 
     # Returns the final speed
     return round(upload_speed, 3)
+
+# Name: report
+# Param1: msg - The message to be added to the report file
+# Return: None
+# Desc: Updates/Creates the report file that handles all operations handled by the server
+def report(msg=''):
+    # Handles report file
+    file_path = 'statistics.txt'
+    with open(file_path, 'a') as opened_file:
+        opened_file.write(msg)
+        opened_file.close()

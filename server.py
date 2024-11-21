@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 
 # Constant Variables
-IP = '10.221.80.225'
+IP = '10.180.80.204'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -102,7 +102,7 @@ def handle_conn(conn, addr):
                     continue
                 
                 # Starts tracking
-                start_track()
+                start_track(addr)
                 
                 # Sends file
                 print('Start file transfer')
@@ -119,7 +119,7 @@ def handle_conn(conn, addr):
                 # Handles file size and speed
                 file_size = os.path.getsize(full_path)
                 file_size_int = int(file_size)
-                upload_speed = end_track(file_size_int)
+                upload_speed = end_track(addr, file_size_int)
                 report(msg=f'{addr} | UPLOADED File (To Server): {file_path} | Time: {current_time()}\nFile Size: {round(file_size/(1024*1024), 2)} MB | Upload Speed: {upload_speed} MB/s\n\n')
                 print(f'{addr} uploaded {file_path} to the server.')
 
@@ -143,7 +143,7 @@ def handle_conn(conn, addr):
                         return
                     
                     # Starts tracking
-                    start_track()
+                    start_track(addr)
 
                     # Handles file size
                     file_size = os.path.getsize(file_path)
@@ -163,7 +163,7 @@ def handle_conn(conn, addr):
                                 progress_bar.update(len(chunk))
                 
                     # Handles upload speed
-                    download_speed = end_track(file_size_int)
+                    download_speed = end_track(addr, file_size_int)
                     report(msg=f'{addr} | DOWNLOADED File (From Server): {file_path} | Time: {current_time()}\nFile Size: {round(file_size/(1024*1024), 2)} MB | Download Speed: {download_speed} MB/s\n\n')
 
                     # Send an EOF to indicate the end of the file transfer

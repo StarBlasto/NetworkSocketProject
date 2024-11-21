@@ -55,3 +55,42 @@ File Size: 0.0 MB | Upload Speed: 0.218 MB/s
 ('10.221.80.225', 49979) | UPLOADED File (To Server): Saving Money with Dynamic Programming.pptx | Time: 2024-11-21 12:40:45
 File Size: 1.34 MB | Upload Speed: 18.285 MB/s
 
+('10.180.80.204', 51875) | UPLOADED File (To Server): Assignment_5_Answers.docx | Time: 2024-11-21 13:58:57
+File Size: 0.67 MB | Upload Speed: 6.308 MB/s
+
+('10.180.80.204', 51909) | UPLOADED File (To Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:02:31
+File Size: 0.12 MB | Upload Speed: 1.881 MB/s
+
+('10.180.80.204', 51909) | DELETED File (From Server): brute_force.cpp | Time: 2024-11-21 14:03:03
+File Size: 0.0 MB
+
+('10.180.80.204', 51909) | DELETED File (From Server): Saving Money with Dynamic Programming.pptx | Time: 2024-11-21 14:03:07
+File Size: 1.34 MB
+
+('10.180.80.204', 51909) | DELETED File (From Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:03:12
+File Size: 0.12 MB
+
+('10.180.80.204', 51909) | DELETED File (From Server): Assignment_5_Answers.docx | Time: 2024-11-21 14:03:17
+File Size: 0.67 MB
+
+('10.180.80.204', 51909) | DELETED File (From Server): Assignment_5_Answers.pdf | Time: 2024-11-21 14:03:21
+File Size: 0.32 MB
+
+('10.180.80.204', 51909) | UPLOADED File (To Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:04:02
+File Size: 0.12 MB | Upload Speed: 9.61 MB/s
+
+('10.180.80.204', 51909) | DOWNLOADED File (From Server): server_data\Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:04:05
+File Size: 0.12 MB | Download Speed: 8.502 MB/s
+
+('10.180.80.204', 51976) | UPLOADED File (To Server): R (1).jpg | Time: 2024-11-21 14:07:14
+File Size: 0.04 MB | Upload Speed: 0.898 MB/s
+
+('10.180.80.204', 51990) | DOWNLOADED File (From Server): server_data\R (1).jpg | Time: 2024-11-21 14:08:14
+File Size: 0.04 MB | Download Speed: 2.324 MB/s
+
+('10.180.80.204', 51990) | DELETED File (From Server): R (1).jpg | Time: 2024-11-21 14:15:32
+File Size: 0.04 MB
+
+('10.180.80.204', 51990) | DELETED File (From Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:15:37
+File Size: 0.12 MB
+

@@ -9,7 +9,7 @@ import time
 from tqdm import tqdm
 
 # Constant Variables
-IP = '10.221.80.225'
+IP = '10.180.80.204'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024

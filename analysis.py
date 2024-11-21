@@ -1,31 +1,32 @@
 # [ANALYSIS]
-# Importted modules
+# Imported modules
 import time
 import pandas as pd
 
 # Global variables
-last_start_time = 0
+last_start_times = {}
 
 # Name: start_track
-# Param: None
+# Param1: addr - The address for the connection being monitored
 # Return: None
 # Desc: Starts the tracking process before starting a file download
-def start_track():
-    global last_start_time
-    last_start_time = time.time()
+def start_track(addr):
+    global last_start_times
+    last_start_times[str(addr[1])] = float(time.time())
 
 # Name: end_track
-# Param1: file_size - The size of the file uploaded/downloaded
+# Param1: addr - The address for the connection being monitored
+# Param2: file_size - The size of the file uploaded/downloaded
 # Return: (float) - The upload/download speed 
 # Desc: Returns the speed at which the file was uploaded or downloaded
-def end_track(file_size):
+def end_track(addr, file_size):
     # Only continues if the file size exists
     if file_size == None:
         return 0
     
     # Rest of the calculations
-    global last_start_time
-    difference_time = time.time() - last_start_time
+    global last_start_times
+    difference_time = float(time.time()) - last_start_times[str(addr[1])]
     upload_speed = (file_size / difference_time) / (1024 * 1024)
 
     # Returns the final speed

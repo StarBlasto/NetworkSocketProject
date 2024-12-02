@@ -6,10 +6,10 @@ import hashlib
 import tkinter as tk
 from tkinter import messagebox, filedialog, ttk, simpledialog
 import time
-from tqdm import tqdm
+#from tqdm import tqdm
 
 # Constant Variables
-IP = '10.180.80.204'
+IP = '10.200.102.17'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -45,65 +45,84 @@ class UI:
             # Gets file path
             file_path = self.open_file()
             selected_folder = self.file_listbox.get(tk.ACTIVE)
-            
-            # Determines if the file is a directory
-            if '[Folder]' in selected_folder:
-                target_folder = selected_folder.strip('[Folder] ')
-            else:
-                target_folder = ''
 
-            # Checks if the file exists
+            # Determines if the file is a directory
+            target_folder = (
+                selected_folder.strip('[Folder] ') if '[Folder]' in selected_folder else ''
+            )
+
+            # Check if the file exists
             if file_path:
-                # Sends request to UPLOAD file
+                # Send request to UPLOAD file
                 conn.send('UPLOAD'.encode(FORMAT))
+                veri = conn.recv(SIZE).decode(FORMAT)
                 file_name = os.path.basename(file_path)
 
                 # Send the target directory path
                 conn.send(f'{target_folder}/{file_name}'.encode(FORMAT))
 
-                # Check's if the file exists already in the server
+                # Check if the file already exists on the server
                 server_resp = conn.recv(SIZE).decode(FORMAT)
                 if server_resp == 'ALREADY EXISTS':
-                    confirm = messagebox.askyesno('File Already exists', f'Would you like to overwrite the file?')
-                    if confirm:
-                        conn.send('YES'.encode(FORMAT))
-                    else:
-                        conn.send('NO'.encode(FORMAT))
+                    confirm = messagebox.askyesno(
+                        'File Already exists', f'Would you like to overwrite the file?'
+                    )
+                    conn.send('YES'.encode(FORMAT) if confirm else 'NO'.encode(FORMAT))
+                    if not confirm:
                         return
                 else:
                     conn.send('N/A'.encode(FORMAT))
-                
-                # Gets size
+
+                # Get file size
                 file_size = os.path.getsize(file_path)
-                progress_bar = tqdm(total=file_size, unit='iB', unit_scale=True)
-                
+
                 # Transfer the file in chunks
                 with open(file_path, 'rb') as f:
+                    chunk_index = 0
+                    print('Opened file')
                     while chunk := f.read(SIZE):
                         conn.send(chunk)
-                        progress_bar.update(len(chunk))
+                        ack = conn.recv(SIZE).decode(FORMAT)
+                        if ack == f'ACK@{chunk_index}':
+                            print(f"Server acknowledged chunk {chunk_index}")
+                            #self.status_var.set(f'Uploaded Chunk: {chunk_index}')
+                            #self.root.update_idletasks()
+
+                            chunk_index += 1  # Move to the next chunk
+                        elif "ERROR@" in ack:
+                            print(f"Server reported an error for chunk {chunk_index}, resending...")
+                        elif ack == "ACK@EOF":
+                            print("Server acknowledged EOF, upload complete")
+                            break
+
+                print('Sent final EOF chunk')
                 conn.send(b'EOF')
 
-                # Handles server response
+                # Handle server response
                 response = conn.recv(SIZE).decode(FORMAT)
                 print(f'Server response: {response}')
 
-                # Gets upload speed
+                conn.send('Ack'.encode(FORMAT))
+
+                # Get upload speed
                 upload_speed = conn.recv(SIZE).decode(FORMAT)
                 print(f'Upload Speed: {upload_speed}')
 
-                # Updates label
-                self.status_var.set(f'Uploaded {file_name} to {target_folder} successfully\nUpload Speed: {upload_speed} MB/s')
+                # Update status
+                self.status_var.set(
+                    f'Uploaded {file_name} to {target_folder} successfully\nUpload Speed: {upload_speed} MB/s'
+                )
                 self.update_file_list(conn)
 
         except ConnectionAbortedError as e:
-            # There was a connection error
+            # Handle connection errors
             print(f'Connection Aborted: {e}')
             messagebox.showerror('Connection Error', 'Connection was unexpectedly closed')
-        
+
         except Exception as e:
-            # There was an exception
+            # Handle other exceptions
             print(f'ERROR: {e}')
+
 
     # Name: create_subdirectory
     # Param1: conn - The connection
@@ -115,6 +134,9 @@ class UI:
         if dir_name:
             # Sends request to CREATE DIRECTORY
             conn.send('CREATE_DIR'.encode(FORMAT))
+            veri = conn.recv(SIZE).decode(FORMAT)
+
+            # Sends Info about Directory
             conn.send(dir_name.encode(FORMAT))
             
             # Waits for confirmation message
@@ -172,8 +194,10 @@ class UI:
 
         # Sends request to DOWNLOAD the file
         conn.send('DOWNLOAD'.encode(FORMAT))
+        veri = conn.recv(SIZE).decode(FORMAT)
+
+        # Sends info about the FILE
         conn.send(item_path.encode(FORMAT))
-        time.sleep(0.1)
 
         # Handles base_name incase of file path stuff
         base_name = os.path.basename(item_path)
@@ -239,8 +263,10 @@ class UI:
 
         # Send delete request to the server with the cleaned path
         conn.send('DELETE'.encode(FORMAT))
+        veri = conn.recv(SIZE).decode(FORMAT)
+
+        # Info about what file to delete
         conn.send(item_path.encode(FORMAT))
-        time.sleep(0.1)
 
         # Receive response from the server
         response = conn.recv(SIZE).decode(FORMAT)
@@ -315,15 +341,12 @@ class UI:
         # File Operation Buttons
         self.button_frame = tk.Frame(self.fd_frame, bg="lightgrey")
         self.button_frame.grid(row=2, column=0, pady=10)
-
         self.upload_btn = tk.Button(self.button_frame, text='Upload', width=15,
                                     command=lambda: self.upload_file(conn=conn), bg="#007BFF", fg="white")
         self.upload_btn.grid(row=0, column=0, padx=5, pady=5)
-
         self.download_btn = tk.Button(self.button_frame, text='Download', width=15,
                                       command=lambda: self.download_file(conn=conn), bg="#28A745", fg="white")
         self.download_btn.grid(row=0, column=1, padx=5, pady=5)
-
         self.delete_btn = tk.Button(self.button_frame, text='Delete', width=15,
                                     command=lambda: self.delete_file(conn=conn), bg="#DC3545", fg="white")
         self.delete_btn.grid(row=0, column=2, padx=5, pady=5)
@@ -336,11 +359,11 @@ class UI:
         self.create_dir_btn.grid(row=0, column=3, padx=5, pady=5)
 
 
-        # Create a Listbox to show the list of files
+        # Creates a Listbox to show the list of files
         self.file_listbox = tk.Listbox(self.fd_frame, selectmode=tk.SINGLE, width=70, height=10)
         self.file_listbox.grid(row=3, column=0, pady=10)
 
-        # Refresh Button to fetch file list
+        # Refreshes Button to fetch file list
         self.refresh_btn = tk.Button(self.fd_frame, text='Refresh Files', command=lambda: self.update_file_list(conn))
         self.refresh_btn.grid(row=4, column=0, pady=5)
 

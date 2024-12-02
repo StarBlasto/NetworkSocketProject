@@ -94,3 +94,488 @@ File Size: 0.04 MB
 ('10.180.80.204', 51990) | DELETED File (From Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:15:37
 File Size: 0.12 MB
 
+('10.180.80.204', 52105) | DELETED File (From Server): Presentation Video.mp4 | Time: 2024-11-21 14:25:16
+File Size: 158.5 MB
+
+('10.180.80.204', 52105) | UPLOADED File (To Server): Presentation Video.mp4 | Time: 2024-11-21 14:25:36
+File Size: 158.5 MB | Upload Speed: 32.184 MB/s
+
+('10.180.80.204', 52119) | DELETED File (From Server): Presentation Video.mp4 | Time: 2024-11-21 14:27:23
+File Size: 158.5 MB
+
+('10.180.80.204', 52119) | UPLOADED File (To Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:27:31
+File Size: 0.12 MB | Upload Speed: 2.727 MB/s
+
+('10.180.80.204', 52119) | UPLOADED File (To Server): BS+in+Computer+Science+2023-24+3.12.pdf | Time: 2024-11-21 14:27:36
+File Size: 0.85 MB | Upload Speed: 21.266 MB/s
+
+('10.180.80.204', 52119) | UPLOADED File (To Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 14:27:41
+File Size: 0.53 MB | Upload Speed: 17.641 MB/s
+
+('10.180.80.204', 52119) | DELETED File (From Server): BS+in+Computer+Science+2023-24+3.12.pdf | Time: 2024-11-21 14:27:48
+File Size: 0.85 MB
+
+('10.180.80.204', 52119) | DOWNLOADED File (From Server): server_data\Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:27:53
+File Size: 0.12 MB | Download Speed: 8.601 MB/s
+
+('10.180.80.204', 52163) | UPLOADED File (To Server): My Homework Files/Mini Project 1 Report.pdf | Time: 2024-11-21 14:32:44
+File Size: 0.38 MB | Upload Speed: 4.582 MB/s
+
+('10.180.80.204', 52163) | DELETED File (From Server): My Homework Files/Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:32:50
+File Size: 0.12 MB
+
+('10.180.80.204', 52163) | DELETED File (From Server): 05.Interlude_process_api.pptx | Time: 2024-11-21 14:32:56
+File Size: 0.53 MB
+
+('10.180.80.204', 52163) | DELETED File (From Server): Assignment_5_DynamicProgramming.pdf | Time: 2024-11-21 14:33:00
+File Size: 0.12 MB
+
+('10.180.80.204', 52163) | UPLOADED File (To Server): My Videos/2024-11-14 18-05-54.mp4 | Time: 2024-11-21 14:33:16
+File Size: 10.43 MB | Upload Speed: 30.459 MB/s
+
+('10.180.80.204', 52163) | UPLOADED File (To Server): My Videos/Presentation Video.mp4 | Time: 2024-11-21 14:33:23
+File Size: 63.59 MB | Upload Speed: 33.612 MB/s
+
+('10.180.80.204', 52163) | DELETED Directory (From Server): My Videos | Time: 2024-11-21 14:43:02
+
+('10.180.80.204', 52163) | DELETED Directory (From Server): My Homework Files | Time: 2024-11-21 14:43:06
+
+('10.180.80.191', 58728) | UPLOADED File (To Server): Test/R (1).jpg | Time: 2024-11-26 09:02:59
+File Size: 0.04 MB | Upload Speed: 1.162 MB/s
+
+('10.180.80.191', 58728) | DOWNLOADED File (From Server): Test/R (1).jpg | Time: 2024-11-26 09:03:04
+File Size: 0.04 MB | Download Speed: 5.042 MB/s
+
+('10.180.80.191', 58957) | UPLOADED File (To Server): Test/2024-11-14 18-05-54.mp4 | Time: 2024-11-26 09:10:21
+File Size: 10.43 MB | Upload Speed: 58.677 MB/s
+
+('10.180.80.191', 58973) | DOWNLOADED File (From Server): Test/2024-11-14 18-05-54.mp4 | Time: 2024-11-26 09:10:32
+File Size: 10.43 MB | Download Speed: 2.245 MB/s
+
+('10.180.80.191', 58957) | DELETED Directory (From Server): Test 2 | Time: 2024-11-26 09:10:57
+
+('10.180.80.191', 53265) | DOWNLOADED File (From Server): Test/2024-11-14 18-05-54.mp4 | Time: 2024-11-26 12:37:58
+File Size: 10.43 MB | Download Speed: 1.356 MB/s
+
+('10.180.80.191', 53287) | UPLOADED File (To Server): R (1).jpg | Time: 2024-11-26 12:39:45
+File Size: 0.04 MB | Upload Speed: 0.639 MB/s
+
+('10.180.80.191', 53287) | DELETED File (From Server): R (1).jpg | Time: 2024-11-26 12:40:15
+File Size: 0.04 MB
+
+('10.180.80.191', 53287) | DELETED Directory (From Server): Test | Time: 2024-11-26 12:40:21
+
+('10.180.80.191', 53287) | UPLOADED File (To Server): R (1).jpg | Time: 2024-11-26 12:40:30
+File Size: 0.04 MB | Upload Speed: 2.916 MB/s
+
+('10.180.80.191', 53287) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-11-26 12:40:37
+File Size: 10.43 MB | Upload Speed: 3.998 MB/s
+
+('10.180.80.191', 53517) | UPLOADED File (To Server): R (1).jpg | Time: 2024-11-26 12:49:31
+File Size: 0.04 MB | Upload Speed: 0.617 MB/s
+
+('10.180.80.191', 53517) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-11-26 12:49:46
+File Size: 10.43 MB | Upload Speed: 4.099 MB/s
+
+('192.168.1.213', 49842) | DOWNLOADED File (From Server): R (1).jpg | Time: 2024-12-01 10:45:12
+File Size: 0.04 MB | Download Speed: 1.032 MB/s
+
+('192.168.1.112', 51473) | DELETED Directory (From Server): test3 | Time: 2024-12-01 11:30:51
+
+('192.168.1.112', 51473) | DELETED Directory (From Server): test2 | Time: 2024-12-01 11:30:54
+
+('192.168.1.112', 51473) | DELETED Directory (From Server): test | Time: 2024-12-01 11:30:56
+
+('192.168.1.112', 51473) | DELETED File (From Server): t1.fbx | Time: 2024-12-01 11:30:58
+File Size: 0.02 MB
+
+('192.168.1.112', 51473) | DOWNLOADED File (From Server): R (1).jpg | Time: 2024-12-01 11:31:01
+File Size: 0.04 MB | Download Speed: 2.403 MB/s
+
+('192.168.1.112', 51473) | DOWNLOADED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 11:31:14
+File Size: 10.43 MB | Download Speed: 2.725 MB/s
+
+('192.168.1.112', 51513) | UPLOADED File (To Server): Assignment2_Answers.pdf | Time: 2024-12-01 11:33:32
+File Size: 0.0 MB | Upload Speed: 0.0 MB/s
+
+('192.168.1.112', 51863) | DELETED File (From Server): t2.fbx | Time: 2024-12-01 13:03:32
+File Size: 0.02 MB
+
+('192.168.1.112', 51863) | DELETED File (From Server): Saving Money with Dynamic Programming.pptx | Time: 2024-12-01 13:03:34
+File Size: 3.93 MB
+
+('192.168.1.112', 51863) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 13:03:38
+File Size: 0.04 MB
+
+('192.168.1.112', 51863) | DELETED File (From Server): Assignment2_Answers.pdf | Time: 2024-12-01 13:03:40
+File Size: 0.0 MB
+
+('192.168.1.112', 51863) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:03:42
+File Size: 10.43 MB
+
+('192.168.1.112', 51863) | DELETED File (From Server): 0a91ef83cdb399418565cec8ca995352.jpg | Time: 2024-12-01 13:03:45
+File Size: 0.08 MB
+
+('192.168.1.112', 51863) | UPLOADED File (To Server): Assignment_5_Answers.pdf | Time: 2024-12-01 13:03:49
+File Size: 0.0 MB | Upload Speed: 0.0 MB/s
+
+('192.168.1.112', 51863) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 13:03:54
+File Size: 0.04 MB | Upload Speed: 2.885 MB/s
+
+('192.168.1.112', 51863) | UPLOADED File (To Server): t1.fbx | Time: 2024-12-01 13:04:01
+File Size: 0.02 MB | Upload Speed: 1.605 MB/s
+
+('192.168.1.112', 51863) | UPLOADED File (To Server): Programming Assignment 1.pdf | Time: 2024-12-01 13:04:06
+File Size: 0.15 MB | Upload Speed: 4.261 MB/s
+
+('192.168.1.112', 51863) | DOWNLOADED File (From Server): R (1).jpg | Time: 2024-12-01 13:04:15
+File Size: 0.04 MB | Download Speed: 1.325 MB/s
+
+('192.168.1.112', 51863) | UPLOADED File (To Server): test/2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:04:44
+File Size: 10.43 MB | Upload Speed: 9.239 MB/s
+
+('192.168.1.112', 51863) | DOWNLOADED File (From Server): test/2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:04:52
+File Size: 10.43 MB | Download Speed: 1.724 MB/s
+
+('192.168.1.112', 51954) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:21:19
+File Size: 10.43 MB | Upload Speed: 11.742 MB/s
+
+('192.168.1.112', 51954) | DOWNLOADED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:21:30
+File Size: 10.43 MB | Download Speed: 2.91 MB/s
+
+('10.200.102.100', 54335) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 13:28:59
+File Size: 10.43 MB
+
+('10.200.102.100', 54335) | DELETED File (From Server): Assignment_5_Answers.pdf | Time: 2024-12-01 13:29:03
+File Size: 0.0 MB
+
+('10.200.102.100', 54335) | DELETED File (From Server): Programming Assignment 1.pdf | Time: 2024-12-01 13:29:07
+File Size: 0.15 MB
+
+('10.200.102.100', 54335) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 13:29:12
+File Size: 0.04 MB
+
+('10.200.102.100', 54335) | DELETED File (From Server): t1.fbx | Time: 2024-12-01 13:29:15
+File Size: 0.02 MB
+
+('10.200.102.100', 54335) | DELETED Directory (From Server): test | Time: 2024-12-01 13:29:19
+
+('10.200.102.17', 63300) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 13:31:38
+File Size: 0.04 MB | Upload Speed: 4.378 MB/s
+
+('10.200.102.100', 54414) | DOWNLOADED File (From Server): R (1).jpg | Time: 2024-12-01 13:32:02
+File Size: 0.04 MB | Download Speed: 1.699 MB/s
+
+('10.200.102.17', 63300) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 13:32:16
+File Size: 0.04 MB
+
+('10.200.102.100', 54414) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 13:32:21
+File Size: 0.04 MB | Upload Speed: 0.419 MB/s
+
+('10.200.102.17', 63300) | DOWNLOADED File (From Server): R (1).jpg | Time: 2024-12-01 13:34:01
+File Size: 0.04 MB | Download Speed: 8.694 MB/s
+
+('10.200.102.100', 54592) | UPLOADED File (To Server): modified.png | Time: 2024-12-01 13:42:54
+File Size: 0.07 MB | Upload Speed: 0.469 MB/s
+
+('10.200.102.100', 54627) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 13:44:48
+File Size: 0.08 MB | Upload Speed: 0.452 MB/s
+
+('10.200.102.100', 54627) | DOWNLOADED File (From Server): peter.png | Time: 2024-12-01 13:45:06
+File Size: 0.08 MB | Download Speed: 0.459 MB/s
+
+('10.200.102.17', 63530) | UPLOADED File (To Server): Big Files/Presentation Video.mp4 | Time: 2024-12-01 13:47:19
+File Size: 63.59 MB | Upload Speed: 28.713 MB/s
+
+('10.200.102.17', 63559) | DELETED File (From Server): Big Files/Presentation Video.mp4 | Time: 2024-12-01 13:49:21
+File Size: 63.59 MB
+
+('10.200.102.17', 63559) | UPLOADED File (To Server): Big Files/Presentation Video.mp4 | Time: 2024-12-01 13:49:33
+File Size: 63.59 MB | Upload Speed: 43.793 MB/s
+
+('10.200.102.17', 64275) | DELETED File (From Server): Big Files/Presentation Video.mp4 | Time: 2024-12-01 14:21:51
+File Size: 63.59 MB
+
+('10.200.102.17', 64275) | DELETED Directory (From Server): Big Files | Time: 2024-12-01 14:22:03
+
+('10.200.102.17', 64275) | DELETED File (From Server): modified.png | Time: 2024-12-01 14:22:10
+File Size: 0.07 MB
+
+('10.200.102.17', 64275) | DELETED File (From Server): peter.png | Time: 2024-12-01 14:22:14
+File Size: 0.08 MB
+
+('10.200.102.17', 64275) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 14:22:18
+File Size: 0.04 MB
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 14:23:21
+File Size: 0.04 MB | Upload Speed: 7.373 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 14:23:26
+File Size: 0.07 MB | Upload Speed: 9.889 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 14:23:37
+File Size: 10.43 MB | Upload Speed: 32.093 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): Saving Money with Dynamic Programming.pptx | Time: 2024-12-01 14:23:53
+File Size: 3.93 MB | Upload Speed: 29.867 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): fib.c | Time: 2024-12-01 14:24:00
+File Size: 0.0 MB | Upload Speed: 0.212 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): matrix.c | Time: 2024-12-01 14:24:07
+File Size: 0.0 MB | Upload Speed: 0.396 MB/s
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:35:40
+File Size: 0.17 MB | Upload Speed: 15.756 MB/s
+
+('10.200.102.17', 64275) | DELETED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:37:17
+File Size: 0.17 MB
+
+('10.200.102.17', 64275) | UPLOADED File (To Server): fib.c | Time: 2024-12-01 14:37:24
+File Size: 0.0 MB | Upload Speed: 0.205 MB/s
+
+('10.200.102.100', 55739) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:37:36
+File Size: 0.17 MB | Upload Speed: 0.712 MB/s
+
+('10.200.102.100', 55739) | DOWNLOADED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:38:10
+File Size: 0.17 MB | Download Speed: 0.544 MB/s
+
+('10.200.102.100', 55739) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 14:38:20
+File Size: 0.08 MB | Upload Speed: 0.7 MB/s
+
+('10.200.102.17', 58966) | DELETED File (From Server): Saving Money with Dynamic Programming.pptx | Time: 2024-12-01 14:43:58
+File Size: 3.93 MB
+
+('10.200.102.17', 58966) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 14:44:02
+File Size: 0.04 MB
+
+('10.200.102.17', 58966) | DELETED File (From Server): peter.png | Time: 2024-12-01 14:44:07
+File Size: 0.08 MB
+
+('10.200.102.17', 58966) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 14:44:12
+File Size: 10.43 MB
+
+('10.200.102.100', 59114) | UPLOADED File (To Server): modified.png | Time: 2024-12-01 14:44:19
+File Size: 0.07 MB | Upload Speed: 0.321 MB/s
+
+('10.200.102.100', 59114) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:44:32
+File Size: 0.17 MB | Upload Speed: 0.4 MB/s
+
+('10.200.102.100', 59114) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 14:44:35
+File Size: 0.08 MB | Upload Speed: 0.346 MB/s
+
+('10.200.102.17', 60485) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 14:57:51
+File Size: 10.43 MB | Upload Speed: 0.32 MB/s
+
+('10.200.102.17', 60485) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 14:58:07
+File Size: 0.04 MB | Upload Speed: 0.382 MB/s
+
+('10.200.102.17', 60485) | UPLOADED File (To Server): matrix.c | Time: 2024-12-01 14:58:13
+File Size: 0.0 MB | Upload Speed: 0.264 MB/s
+
+('10.200.102.17', 60485) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 14:58:23
+File Size: 10.43 MB
+
+('10.200.102.17', 60485) | DELETED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 14:58:27
+File Size: 0.17 MB
+
+('10.200.102.100', 63418) | UPLOADED File (To Server): modified.png | Time: 2024-12-01 15:07:26
+File Size: 0.07 MB | Upload Speed: 0.432 MB/s
+
+('10.200.102.100', 63418) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 15:07:32
+File Size: 0.17 MB | Upload Speed: 1.324 MB/s
+
+('10.200.102.17', 63075) | UPLOADED File (To Server): DIR | Time: 2024-12-01 15:52:43
+File Size: 0.07 MB | Upload Speed: 10.455 MB/s
+
+('10.200.102.17', 63230) | UPLOADED File (To Server): Bow.mp4 | Time: 2024-12-01 15:56:22
+File Size: 2.09 MB | Upload Speed: 1.891 MB/s
+
+('10.200.102.17', 63230) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 15:56:39
+File Size: 0.07 MB | Upload Speed: 1.892 MB/s
+
+('10.200.102.17', 63230) | UPLOADED File (To Server): BST.cpp | Time: 2024-12-01 15:56:47
+File Size: 0.01 MB | Upload Speed: 0.386 MB/s
+
+('10.200.102.17', 63230) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 15:56:58
+File Size: 10.43 MB | Upload Speed: 2.004 MB/s
+
+('10.200.102.17', 63230) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 15:57:06
+File Size: 10.43 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): Assignment#1.pdf | Time: 2024-12-01 15:57:10
+File Size: 0.0 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): Bow.mp4 | Time: 2024-12-01 15:57:14
+File Size: 2.09 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): BST.cpp | Time: 2024-12-01 15:57:18
+File Size: 0.01 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): DIR | Time: 2024-12-01 15:57:22
+File Size: 0.07 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 15:57:25
+File Size: 0.17 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): matrix.c | Time: 2024-12-01 15:57:29
+File Size: 0.0 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): fib.c | Time: 2024-12-01 15:57:36
+File Size: 0.0 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): modified.png | Time: 2024-12-01 15:57:40
+File Size: 0.07 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): peter.png | Time: 2024-12-01 15:57:44
+File Size: 0.07 MB
+
+('10.200.102.17', 63230) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 15:57:48
+File Size: 0.04 MB
+
+('10.200.102.17', 63267) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 16:00:41
+File Size: 10.43 MB | Upload Speed: 0.994 MB/s
+
+('10.200.102.17', 63313) | UPLOADED File (To Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 16:05:16
+File Size: 10.43 MB | Upload Speed: 0.604 MB/s
+
+('10.200.102.17', 63313) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 16:06:31
+File Size: 0.07 MB | Upload Speed: 0.351 MB/s
+
+('10.200.102.17', 63313) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 16:07:42
+File Size: 0.04 MB | Upload Speed: 0.343 MB/s
+
+('10.200.102.17', 63313) | UPLOADED File (To Server): Presentation Video.mp4 | Time: 2024-12-01 16:09:46
+File Size: 63.59 MB | Upload Speed: 0.595 MB/s
+
+('10.200.102.17', 63359) | UPLOADED File (To Server): Presentation Video.mp4 | Time: 2024-12-01 16:11:31
+File Size: 63.59 MB | Upload Speed: 1.209 MB/s
+
+('10.200.102.100', 65061) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 16:12:57
+File Size: 0.17 MB | Upload Speed: 0.016 MB/s
+
+('10.200.102.100', 65061) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 16:13:40
+File Size: 0.08 MB | Upload Speed: 0.017 MB/s
+
+('10.200.102.100', 65061) | UPLOADED File (To Server): modified.png | Time: 2024-12-01 16:13:52
+File Size: 0.07 MB | Upload Speed: 0.012 MB/s
+
+('10.200.102.100', 65061) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 16:14:11
+File Size: 0.04 MB | Upload Speed: 0.018 MB/s
+
+('10.200.102.17', 63399) | UPLOADED File (To Server): Naibys Alzugaray 2024-2025 Resume (2).pdf | Time: 2024-12-01 16:15:40
+File Size: 0.08 MB | Upload Speed: 0.805 MB/s
+
+('10.200.102.17', 63399) | DELETED File (From Server): Naibys Alzugaray 2024-2025 Resume (2).pdf | Time: 2024-12-01 16:15:45
+File Size: 0.08 MB
+
+('10.200.102.17', 63399) | UPLOADED File (To Server): PolyHallClap_10mM.wav | Time: 2024-12-01 16:15:56
+File Size: 0.45 MB | Upload Speed: 1.193 MB/s
+
+('10.200.102.100', 65163) | DOWNLOADED File (From Server): F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:19:21
+File Size: 0.02 MB | Download Speed: 1.001 MB/s
+
+('10.200.102.100', 65163) | UPLOADED File (To Server): F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:19:44
+File Size: 0.02 MB | Upload Speed: 0.016 MB/s
+
+('10.200.102.17', 63399) | UPLOADED File (To Server): Software_Design.docx | Time: 2024-12-01 16:20:22
+File Size: 0.12 MB | Upload Speed: 0.895 MB/s
+
+('10.200.102.17', 63399) | DELETED File (From Server): PolyHallClap_10mM.wav | Time: 2024-12-01 16:20:27
+File Size: 0.45 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): R (1).jpg | Time: 2024-12-01 16:20:31
+File Size: 0.04 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): Software_Design.docx | Time: 2024-12-01 16:20:35
+File Size: 0.12 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): Presentation Video.mp4 | Time: 2024-12-01 16:20:40
+File Size: 63.59 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): 2024-11-14 18-05-54.mp4 | Time: 2024-12-01 16:20:57
+File Size: 10.43 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:21:01
+File Size: 0.02 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 16:21:05
+File Size: 0.17 MB
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:21:10
+File Size: 0.02 MB | Upload Speed: 0.017 MB/s
+
+('10.200.102.17', 63399) | DELETED File (From Server): modified.png | Time: 2024-12-01 16:21:10
+File Size: 0.07 MB
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 16:21:23
+File Size: 0.17 MB | Upload Speed: 0.018 MB/s
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): peter.png | Time: 2024-12-01 16:21:36
+File Size: 0.08 MB | Upload Speed: 0.008 MB/s
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): modified.png | Time: 2024-12-01 16:21:44
+File Size: 0.07 MB | Upload Speed: 0.015 MB/s
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 16:22:02
+File Size: 0.04 MB | Upload Speed: 0.016 MB/s
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): 1536061-1015443921.jpg | Time: 2024-12-01 16:22:50
+File Size: 0.67 MB | Upload Speed: 0.017 MB/s
+
+('10.200.102.17', 63399) | UPLOADED File (To Server): Presentation Video.mp4 | Time: 2024-12-01 16:26:33
+File Size: 63.59 MB | Upload Speed: 1.238 MB/s
+
+('10.200.102.100', 65196) | UPLOADED File (To Server): DOOM.WAD | Time: 2024-12-01 16:33:08
+File Size: 7.29 MB | Upload Speed: 0.016 MB/s
+
+('10.200.102.17', 63399) | DOWNLOADED File (From Server): Presentation Video.mp4 | Time: 2024-12-01 16:34:29
+File Size: 63.59 MB | Download Speed: 1.575 MB/s
+
+('10.200.102.17', 63399) | DELETED File (From Server): 1536061-1015443921.jpg | Time: 2024-12-01 16:35:29
+File Size: 0.67 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): peter.png | Time: 2024-12-01 16:35:33
+File Size: 0.08 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): modified.png | Time: 2024-12-01 16:35:37
+File Size: 0.07 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): DOOM.WAD | Time: 2024-12-01 16:35:41
+File Size: 7.29 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 16:35:45
+File Size: 0.17 MB
+
+('10.200.102.17', 63399) | DELETED File (From Server): F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:35:49
+File Size: 0.02 MB
+
+('10.200.102.100', 49348) | UPLOADED File (To Server): Test Directory/F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:39:31
+File Size: 0.02 MB | Upload Speed: 0.018 MB/s
+
+('10.200.102.17', 63399) | DOWNLOADED File (From Server): Test Directory/F_Voz3eXEAA0mTI.jpg | Time: 2024-12-01 16:39:47
+File Size: 0.02 MB | Download Speed: 12.184 MB/s
+
+('10.200.102.17', 63399) | UPLOADED File (To Server): Test Directory/R.png | Time: 2024-12-01 16:41:04
+File Size: 1.21 MB | Upload Speed: 4.524 MB/s
+
+('10.200.102.100', 49348) | DOWNLOADED File (From Server): Test Directory/R.png | Time: 2024-12-01 16:41:09
+File Size: 1.21 MB | Download Speed: 0.338 MB/s
+
+('10.200.102.17', 64798) | DELETED File (From Server): DOOM2.WAD | Time: 2024-12-01 16:47:12
+File Size: 0.0 MB
+
+('10.200.102.17', 64822) | UPLOADED File (To Server): Test Directory/peter.png | Time: 2024-12-01 16:50:29
+File Size: 0.07 MB | Upload Speed: 3.907 MB/s
+
+('10.200.102.100', 49491) | UPLOADED File (To Server): DOOM2.WAD | Time: 2024-12-01 16:54:30
+File Size: 7.19 MB | Upload Speed: 0.016 MB/s
+
+('10.200.102.17', 64822) | DELETED Directory (From Server): Test Directory | Time: 2024-12-01 16:55:47
+
+('10.200.102.17', 64822) | UPLOADED File (To Server): GYBkXvSXkAAmlcc.jpg | Time: 2024-12-01 16:56:15
+File Size: 0.17 MB | Upload Speed: 4.129 MB/s
+
+('10.200.102.17', 64822) | UPLOADED File (To Server): R (1).jpg | Time: 2024-12-01 16:56:23
+File Size: 0.04 MB | Upload Speed: 3.072 MB/s
+

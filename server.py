@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 
 # Constant Variables
-IP = '10.180.80.204'
+IP = '0.0.0.0'
 PORT = 4450
 ADDR = (IP, PORT)
 SIZE = 1024
@@ -78,58 +78,91 @@ def handle_conn(conn, addr):
 
             # Splits data
             cmd = data.split(' ')[0]
+            print(f'COMMAND RECIEVED: {cmd} ---------------------------------')
 
             if cmd == 'UPLOAD':
                 print(f'{addr} has called the UPLOAD command')
-                # --------------------------------------------------------------------------------------
-                # | UPLOAD | command
-                # Sets up file path
-                file_path = conn.recv(SIZE).decode(FORMAT).strip("/")
-                full_path = os.path.join(SERVER_DATA_PATH, file_path)
-                os.makedirs(os.path.dirname(full_path), exist_ok=True)
+                conn.send('VERIFY'.encode(FORMAT))
 
-                # Checks if file already exists
-                if os.path.exists(full_path):
-                    conn.send('ALREADY EXISTS'.encode(FORMAT))
-                    print('File already exists')
-                else:
-                    conn.send('DOESNT EXIST'.encode(FORMAT))
-                    print('File doesnt already exist')
+                while True:  # Allow the client to retry in case of recoverable errors
+                    try:
+                        # Receive the file path
+                        raw_data = conn.recv(SIZE)
+                        print(f'Received RAW Data: {raw_data}')
 
-                # Client response
-                client_resp = conn.recv(SIZE).decode(FORMAT)
-                if client_resp == 'NO':
-                    continue
-                
-                # Starts tracking
-                start_track(addr)
-                
-                # Sends file
-                print('Start file transfer')
-                with open(full_path, 'wb') as opened_file:
-                    while True:
-                        chunk = conn.recv(SIZE)
-                        if chunk == b'EOF':
-                            print('EOF Located')
-                            break
-                        opened_file.write(chunk)
-                conn.send('FILE UPLOADED'.encode(FORMAT))
-                print('Finished file transfer')
+                        # Attempt to decode the file path
+                        try:
+                            file_path = raw_data.decode(FORMAT).strip("/")
+                            print(f'File Path: {file_path}')
+                            full_path = os.path.join(SERVER_DATA_PATH, file_path)
+                            os.makedirs(os.path.dirname(full_path), exist_ok=True)
+                        except UnicodeDecodeError as e:
+                            print(f"Error decoding file path: {e}")
+                            conn.send("ERROR@Invalid file path encoding".encode(FORMAT))
+                            continue  # Prompt the client to resend the file path
 
-                # Handles file size and speed
-                file_size = os.path.getsize(full_path)
-                file_size_int = int(file_size)
-                upload_speed = end_track(addr, file_size_int)
-                report(msg=f'{addr} | UPLOADED File (To Server): {file_path} | Time: {current_time()}\nFile Size: {round(file_size/(1024*1024), 2)} MB | Upload Speed: {upload_speed} MB/s\n\n')
-                print(f'{addr} uploaded {file_path} to the server.')
+                        # Check if file already exists
+                        if os.path.exists(full_path):
+                            conn.send('ALREADY EXISTS'.encode(FORMAT))
+                            print('File already exists')
+                        else:
+                            conn.send('DOESNT EXIST'.encode(FORMAT))
+                            print('File doesn\'t already exist')
 
-                # Sends the upload speed
-                conn.send(f'{upload_speed}'.encode(FORMAT))
-                pass
+                        # Wait for client response
+                        client_resp = conn.recv(SIZE).decode(FORMAT)
+                        if client_resp == 'NO':
+                            print('Client Responded No')
+                            break  # Client canceled the upload
+
+                        # Start tracking
+                        start_track(addr)
+
+                        # Receive file data
+                        print('Start file transfer')
+                        with open(full_path, 'wb') as opened_file:
+                            chunk_index = 0
+                            while True:
+                                chunk = conn.recv(SIZE)
+                                if b'EOF' in chunk:
+                                    opened_file.write(chunk.split(b'EOF')[0])
+                                    print('EOF Located')
+                                    conn.send(f'ACK@EOF'.encode(FORMAT))
+                                    break
+
+                                opened_file.write(chunk)
+                                print(f"Received chunk {chunk_index}, size: {len(chunk)}")
+                                conn.send(f'ACK@{chunk_index}'.encode(FORMAT))
+                                chunk_index += 1
+
+                        print('Finished file transfer')
+                        client_resp = conn.recv(SIZE).decode(FORMAT)
+
+                        # Handle file size and speed
+                        file_size = os.path.getsize(full_path)
+                        file_size_int = int(file_size)
+                        upload_speed = end_track(addr, file_size_int)
+                        report(msg=f'{addr} | UPLOADED File (To Server): {file_path} | Time: {current_time()}\n'
+                                f'File Size: {round(file_size/(1024*1024), 2)} MB | Upload Speed: {upload_speed} MB/s\n\n')
+                        print(f'{addr} uploaded {file_path} to the server.')
+
+                        # Send upload speed to client
+                        conn.send(f'{upload_speed}'.encode(FORMAT))
+                        break  # File upload complete; exit the loop
+
+                    except Exception as e:
+                        # Log any unexpected errors and notify the client
+                        print(f"Unexpected error: {e}")
+                        conn.send(f"ERROR@{str(e)}".encode(FORMAT))
+                        continue  # Allow the client to retry
+
 
             elif cmd == 'DOWNLOAD':
                 # --------------------------------------------------------------------------------------
                 # | DOWNLOAD | command
+                print('Requested to DOWNLOAD')
+                conn.send('VERIFY'.encode(FORMAT))
+
                 try:
                     # Receives the file name from client request
                     file_name = conn.recv(SIZE).decode(FORMAT).strip()
@@ -164,7 +197,7 @@ def handle_conn(conn, addr):
                 
                     # Handles upload speed
                     download_speed = end_track(addr, file_size_int)
-                    report(msg=f'{addr} | DOWNLOADED File (From Server): {file_path} | Time: {current_time()}\nFile Size: {round(file_size/(1024*1024), 2)} MB | Download Speed: {download_speed} MB/s\n\n')
+                    report(msg=f'{addr} | DOWNLOADED File (From Server): {file_name} | Time: {current_time()}\nFile Size: {round(file_size/(1024*1024), 2)} MB | Download Speed: {download_speed} MB/s\n\n')
 
                     # Send an EOF to indicate the end of the file transfer
                     conn.send(b'EOF')
@@ -187,6 +220,10 @@ def handle_conn(conn, addr):
                 # --------------------------------------------------------------------------------------
                 # | DELETE | command
                 # Receive the item path from the client
+                print('Requested to DELETE')
+                conn.send('VERIFY'.encode(FORMAT))
+
+                # Path information
                 o_path = conn.recv(SIZE).decode(FORMAT)
                 item_path = os.path.join(SERVER_DATA_PATH, o_path)
 
@@ -240,14 +277,16 @@ def handle_conn(conn, addr):
                 # --------------------------------------------------------------------------------------
                 # | CREATE_DIR | command
                 print('Server requested to create directory')
+                conn.send('VERIFY'.encode(FORMAT))
+
                 try:
                     dir_name = conn.recv(SIZE).decode(FORMAT)
                     new_dir_path = os.path.join(SERVER_DATA_PATH, dir_name)
                     os.makedirs(new_dir_path, exist_ok=True)
-                    conn.send("DIR_CREATED".encode(FORMAT))
+                    conn.send('DIR_CREATED'.encode(FORMAT))
                     print(f"Directory '{dir_name}' created successfully.")
                 except Exception as e:
-                    conn.send(f"ERROR@{str(e)}".encode(FORMAT))
+                    conn.send(f'ERROR@{str(e)}'.encode(FORMAT))
                     print(f"Failed to create directory '{dir_name}': {e}")
 
             else:
